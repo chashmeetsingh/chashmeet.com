@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.intro-jumbotron {
+  height: 600px;
+}
+
+.profile-jumbotron {
+  height: 500px;
+}
+
+.override-blockquote {
+  border-left: 5px solid #1976d2;
+}
