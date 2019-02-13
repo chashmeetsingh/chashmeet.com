@@ -83,7 +83,7 @@ $(function(){
         ticks: {
           min: 0,
           userCallback: function(value, index, values) {
-            console.log(values, index);
+            // console.log(values, index);
             switch (index) {
               case 6: return "Noob";
               case 4: return "Amateur";
@@ -103,3 +103,70 @@ $(function(){
     options: options
   });
 });
+
+// Contact form
+
+var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+$(document).ready(function() {
+  $('#afterEmail').hide();
+  $('#contactName').hide();
+  $('#contactEmail').hide();
+  $('#contactMessage').hide();
+  $('#name').click(function() {
+    $('#contactName').hide();
+  })
+  $('#email').click(function() {
+    $('#contactEmail').hide();
+  })
+  $('#message').click(function() {
+    $('#contactMessage').hide();
+  })
+  $('#sendMessage').click(function() {
+    if ($('#name').val().length < 1) {
+      console.log('Name is empty', $('#contactName').val().length);
+      $('#contactName').show();
+      return;
+    }
+    if (!$('#email').val().match(emailRegex)) {
+      console.log('Email is invalid');
+      $('#contactEmail').show();
+      return;
+    }
+    if ($('#message').val().length < 1) {
+      console.log('Message is empty');
+      $('#contactMessage').show();
+      return;
+    }
+
+    var data = {
+      name: $('#name').val(),
+      email: $('#email').val(),
+      message: $('#contactMessage').val()
+    }
+
+    $.ajax( {
+      type: "POST",
+      url: "sendEmail.php",
+      data: data,
+      dataType: 'json',
+      beforeSend: function (xhr) {
+        //do stuff progressing
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        xhr.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
+      },
+      success: function (response) {
+        console.log(response);
+        $('#afterEmailMessage').text(response);
+        $('#afterEmail').show();
+        $('#beforeEmail').hide();
+        $('#contact').css('height', '250px');
+      },
+      error: function (e) {
+        console.log('error: ' + JSON . stringify(e));
+      }
+    });
+
+  })
+})

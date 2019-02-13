@@ -171,32 +171,40 @@
   </div>
 
   <!-- Contact Me -->
-  <div class="white contact-jumbotron" id="contact">
+  <div class="white contact-jumbotron valign-wrapper" id="contact">
     <div class="container">
       <h3 class="center-align blue-text darken-2">Contact Me</h3>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <!-- <i class="material-icons prefix">account_circle</i> -->
-              <input id="name" type="text" class="validate">
-              <label for="name">Name</label>
+      <div class="valign-wrapper">
+        <div class="row" id="beforeEmail">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <!-- <i class="material-icons prefix">account_circle</i> -->
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+                <span class="helper-text red-text" data-error="Name is empty" data-success="" id="contactName">Name field is empty.</span>
+              </div>
+              <div class="input-field col s6">
+                <!-- <i class="material-icons prefix">email</i> -->
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+                <span class="helper-text red-text" data-error="Email is invalid" data-success="" id="contactEmail">Email ID is invalid.</span>
+              </div>
+              <div class="input-field col s12">
+                <!-- <i class="material-icons prefix">mode_edit</i> -->
+                <textarea id="message" class="materialize-textarea"></textarea>
+                <label for="textarea">Please type your message here.</label>
+                <span class="helper-text red-text" data-error="Message is empty" data-success="" id="contactMessage">Message field is empty.</span>
+              </div>
+              <div class="input-field col s12 center-align">
+                <button class="waves-effect waves-light btn blue darken-2" id="sendMessage" type="button"><i class="fa fa-paper-plane left"></i>Send Message</a>
+              </div>
             </div>
-            <div class="input-field col s6">
-              <!-- <i class="material-icons prefix">email</i> -->
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-            <div class="input-field col s12">
-              <!-- <i class="material-icons prefix">mode_edit</i> -->
-              <textarea id="textarea" class="materialize-textarea"></textarea>
-              <label for="textarea">Please type your message here.</label>
-            </div>
-            <div class="input-field col s12 center-align">
-              <a class="waves-effect waves-light btn blue darken-2"><i class="fa fa-paper-plane left"></i>Send Message</a>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div id="afterEmail" style="width: 100%;">
+          <h4 class="grey-text center-align" id="afterEmailMessage">Sometext</h4>
+        </div>
       </div>
     </div>
   </div>
@@ -206,7 +214,7 @@
     <div class="footer-copyright">
       <div class="container">
         © 2019 Chashmeet Singh
-        <a class="grey-text text-lighten-4 right" href="#!">Build with 💕 by Chashmeet Singh</a>
+        <a class="grey-text text-lighten-4 right" href="#!">Built with 💕 by Chashmeet Singh</a>
       </div>
     </div>
   </footer>
