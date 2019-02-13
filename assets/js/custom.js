@@ -142,12 +142,12 @@ $(document).ready(function() {
     var data = {
       name: $('#name').val(),
       email: $('#email').val(),
-      message: $('#contactMessage').val()
+      message: $('#message').val()
     }
 
     $.ajax( {
       type: "POST",
-      url: "sendEmail.php",
+      url: "include/sendEmail.php",
       data: data,
       dataType: 'json',
       beforeSend: function (xhr) {
