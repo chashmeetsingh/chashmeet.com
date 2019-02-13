@@ -18,13 +18,18 @@ if( !isset($aResult['error']) ) {
 
   $subject = "You have received a new message";
 
-  $message .= "Email from: " . $name . "<br />";
-  $message .= "Email address: " . $email . "<br />";
-  $message .= "Message: <br />";
+  $message .= "Email from: " . $name . "<br /><br />";
+  $message .= "Email address: " . $email . "<br /><br />";
+  $message .= "Message: <br /><br />";
   $message .= $contact_message;
-  $message .= "<br /> ----- <br /> This email was sent from your site's contact form. <br />";
+  $message .= "<br /><br /> ----- <br /><br /> This email was sent from your site's contact form. <br />";
 
   $from =  $name . " <" . $email . ">";
+
+  $headers = "From: " . $from . "\r\n";
+	$headers .= "Reply-To: ". $email . "\r\n";
+ 	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
   ini_set("sendmail_from", $siteOwnersEmail); // for windows server
   $mail = mail($siteOwnersEmail, $subject, $message, $headers);
