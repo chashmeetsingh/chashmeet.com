@@ -35,7 +35,7 @@ if( !isset($aResult['error']) ) {
   $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
   if ($mail) { echo json_encode("Your message has been sent."); }
-  else { echo json_encode("Something went wrong. Please try again."); }
+  else { echo json_encode("Something went wrong. Please try again later."); }
 
 } else {
   echo json_encode("There was some problem sending your message.");

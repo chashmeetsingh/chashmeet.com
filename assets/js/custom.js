@@ -122,6 +122,7 @@ $(document).ready(function() {
   $('#message').click(function() {
     $('#contactMessage').hide();
   })
+  $('#loader').hide();
   $('#sendMessage').click(function() {
     if ($('#name').val().length < 1) {
       console.log('Name is empty', $('#contactName').val().length);
@@ -155,6 +156,7 @@ $(document).ready(function() {
         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
         xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         xhr.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
+        $('#loader').show();
       },
       success: function (response) {
         console.log(response);
@@ -162,9 +164,11 @@ $(document).ready(function() {
         $('#afterEmail').show();
         $('#beforeEmail').hide();
         $('#contact').css('height', '250px');
+        $('#loader').hide();
       },
       error: function (e) {
         console.log('error: ' + JSON . stringify(e));
+        $('#loader').hide();
       }
     });
 
