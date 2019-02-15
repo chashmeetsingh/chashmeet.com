@@ -19,8 +19,6 @@ if( !isset($contact_message) ) { $aResult['error'] = 'Message not present'; }
 
 if( !isset($aResult['error']) ) {
 
-
-
   $message .= "Email from: " . $name . "<br /><br />";
   $message .= "Email address: " . $email . "<br /><br />";
   $message .= "Message: <br /><br />";
