@@ -1,4 +1,7 @@
 <?php
+
+require 'vendor/autoload.php';
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
@@ -16,7 +19,7 @@ if( !isset($contact_message) ) { $aResult['error'] = 'Message not present'; }
 
 if( !isset($aResult['error']) ) {
 
-  $subject = "You have received a new message";
+
 
   $message .= "Email from: " . $name . "<br /><br />";
   $message .= "Email address: " . $email . "<br /><br />";
@@ -24,18 +27,21 @@ if( !isset($aResult['error']) ) {
   $message .= $contact_message;
   $message .= "<br /><br /> ----- <br /><br /> This email was sent from your site's contact form. <br />";
 
-  $from =  $name . " <" . $email . ">";
+  $from = new SendGrid\Email($name, $email);
+  $subject = "You have received a new message";
+  $to = new SendGrid\Email("Chashmeet Singh", "chashmeetsingh@gmail.com");
+  $content = new SendGrid\Content("text/plain", $message);
+  $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-  $headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $email . "\r\n";
- 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+  $apiKey = getenv('SENDGRID_API_KEY');
+  $sg = new \SendGrid($apiKey);
 
-  ini_set("sendmail_from", $siteOwnersEmail); // for windows server
-  $mail = mail($siteOwnersEmail, $subject, $message, $headers);
-
-  if ($mail) { echo json_encode("Your message has been sent."); }
-  else { echo json_encode("Something went wrong. Please try again later."); }
+  try {
+    $response = $sg->client->mail()->send()->post($mail);
+    echo json_encode("Your message has been sent.");
+  } catch (Exception $e) {
+    echo json_encode("Something went wrong. Please try again later.");
+  }
 
 } else {
   echo json_encode("There was some problem sending your message.");
