@@ -5,8 +5,8 @@ $(document).ready(function(){
       event.preventDefault();
       var hash = this.hash;
       $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
+        scrollTop: $(hash).offset().top - 50
+      }, 700, function(){
         window.location.hash = hash;
       });
     }
@@ -174,6 +174,22 @@ $(document).ready(function() {
 
   })
 })
+
+$('.quotes').slick({
+  dots: false,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 800,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  prevArrow: "",
+  nextArrow: ""
+});
+
+$( document ).ready(function() {
+  $('.no-fouc').removeClass('no-fouc');
+});
 
 // $(document).ready(function(){
 //   pagenum = 1;

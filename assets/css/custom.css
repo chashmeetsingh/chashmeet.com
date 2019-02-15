@@ -48,7 +48,8 @@ main {
 }
 
 .testimonials-jumbotron {
-  height: 500px;
+  overflow:hidden;
+  height:1%;
 }
 
 .contact-jumbotron {
@@ -62,4 +63,92 @@ main {
 .row .input-field input:focus, textarea:focus {
   border-bottom: 1px solid #1976d2 !important;
   box-shadow: 0 1px 0 0 #1976d2 !important
+}
+
+section {
+	width: 80%;
+	margin: 70px auto;
+}
+
+/* Simple Slider */
+.white-back{
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	background: #fff;
+}
+
+.simple blockquote p {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	color: #1e528e;
+	padding: 25px;
+	font-size: 1.25em;
+	font-style: italic;
+	text-align: center;
+}
+
+.simple cite {
+	font-size: 1em;
+	float: right;
+	font-style: normal;
+	color: #1e528e;
+}
+
+.simple cite a {
+	color: #2d91c2;
+	font-style: italic;
+	text-decoration: none;
+	font-size:.85em;
+}
+
+.simple cite a:hover {
+	color: #00B4CC;
+}
+
+/* Bubble Slider */
+
+.bubble blockquote {
+	margin: 10px 10px 0;
+	background: #fff;
+	padding: 60px;
+	position: relative;
+	border: none;
+	border-radius: 8px;
+	font-size: 1.25em;
+	color: #1e528e;
+}
+
+.bubble blockquote:before, .bubble blockquote:after {
+	content: "\201C";
+	position: absolute;
+	font-size: 80px;
+	padding: 10px;
+	line-height: 1;
+	color: #1e528e;
+}
+
+.bubble blockquote:before {
+	top: 0;
+	left: 10px;
+}
+
+.bubble blockquote:after {
+	content: "\201D";
+	right: 10px;
+	bottom: -.5em;
+}
+
+.bubble div {
+	width: 0;
+	height: 0;
+	border-left: 0 solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #fff;
+	margin: 0 0 0 60px;
+	margin-bottom: 10px;
+}
+
+.bubble cite {
+	padding-left: 20px;
+	font-size: 1.25em;
+  color:#f7f7f7;
 }
