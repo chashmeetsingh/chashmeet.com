@@ -179,7 +179,7 @@ $('.quotes').slick({
   dots: false,
   infinite: true,
   autoplay: true,
-  autoplaySpeed: 4000,
+  autoplaySpeed: 6000,
   speed: 800,
   slidesToShow: 1,
   adaptiveHeight: true,
@@ -190,24 +190,3 @@ $('.quotes').slick({
 $( document ).ready(function() {
   $('.no-fouc').removeClass('no-fouc');
 });
-
-// $(document).ready(function(){
-//   pagenum = 1;
-//   function AutoRotate() {
-//     var myele = null;
-//     var allElements = document.getElementsByTagName('label');
-//     for (var i = 0, n = allElements.length; i < n; i++) {
-//       var myfor = allElements[i].getAttribute('for');
-//       if ((myfor !== null) && (myfor == ('slide_2_' + pagenum))) {
-//         allElements[i].click();
-//         break;
-//       }
-//     }
-//     if (pagenum == 4) {
-//       pagenum = 1;
-//     } else {
-//       pagenum++;
-//     }
-//   }
-//   setInterval(AutoRotate, 5000);
-// });
