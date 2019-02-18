@@ -1,5 +1,6 @@
 // Smooth Scroll
 $(document).ready(function(){
+  $('.sidenav').sidenav();
   $("a").on('click', function(event) {
     if (this.hash !== "") {
       event.preventDefault();
