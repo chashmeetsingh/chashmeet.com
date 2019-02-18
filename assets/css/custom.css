@@ -15,8 +15,6 @@ main {
 .profile-jumbotron {
   overflow:hidden;
   height:1%;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .override-blockquote {
@@ -34,6 +32,8 @@ main {
 
 .portfolio-card {
   margin: 30px;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
 .skills-jumbotron {

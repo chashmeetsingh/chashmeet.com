@@ -183,7 +183,7 @@ $('.quotes').slick({
   autoplaySpeed: 6000,
   speed: 800,
   slidesToShow: 1,
-  adaptiveHeight: true,
+  // adaptiveHeight: true,
   prevArrow: "",
   nextArrow: ""
 });
