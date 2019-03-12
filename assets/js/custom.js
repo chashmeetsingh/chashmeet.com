@@ -5,10 +5,10 @@ $(document).ready(function(){
     if (this.hash !== "") {
       event.preventDefault();
       var hash = this.hash;
-      $('html, body').animate({
+      $('html, body').stop().animate({
         scrollTop: $(hash).offset().top - 50
       }, 700, function(){
-        window.location.hash = hash;
+        window.location.hash = hash - 50;
       });
     }
   });
