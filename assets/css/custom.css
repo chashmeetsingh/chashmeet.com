@@ -33,7 +33,8 @@ main {
 .portfolio-card {
   margin: 30px;
   border-radius: 25px;
-  overflow: hidden;
+	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .skills-jumbotron {
