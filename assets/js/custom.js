@@ -16,12 +16,12 @@ $(document).ready(function(){
 
 // Testimonials Slider
 $(document).ready(function(){
-   $('.slider').slider({
-     indicators: false,
-     interval: 40000,
-     height: 200
-   });
- });
+  $('.slider').slider({
+    indicators: false,
+    interval: 40000,
+    height: 200
+  });
+});
 
 // Skills chart
 var ctx = $("#bar-chartcanvas");
@@ -30,7 +30,7 @@ $(function(){
   var ctx = $("#bar-chartcanvas");
 
   var data = {
-    labels: ["iOS", "Ruby", "Python", "Android", "Objective C"],
+    labels: ["iOS", "Ruby on Rails", "Django/Flask", "Android/Java", "Objective C"],
     datasets: [
       {
         label: "Skill",
