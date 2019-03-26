@@ -30,7 +30,7 @@ $(function(){
   var ctx = $("#bar-chartcanvas");
 
   var data = {
-    labels: ["iOS", "Ruby on Rails", "Django/Flask", "Android/Java", "Objective C"],
+    labels: ["iOS/Swift", "Ruby on Rails", "Django/Flask", "Android/Java", "Objective C"],
     datasets: [
       {
         label: "Skill",
